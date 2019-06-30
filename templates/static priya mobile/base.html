@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}{% endblock %} - Flaskr</title>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>-->
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!--<script src="{{ url_for('static', filename='demo.js') }}"></script>-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+<script>
+var $star_rating = $('.star-rating .fa');
+
+var SetRatingStar = function() {
+  return $star_rating.each(function() {
+    if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+      return $(this).removeClass('fa-star-o').addClass('fa-star');
+    } else {
+      return $(this).removeClass('fa-star').addClass('fa-star-o');
+    }
+  });
+};
+
+$star_rating.on('click', function() {
+  $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+  return SetRatingStar();
+});
+
+SetRatingStar();
+$(document).ready(function() {
+
+});
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+<!--&lt;!&ndash;script for navbar&ndash;&gt;-->
+</script>
+</head>
+<body>
+<div class="container">
+<div class="topnav" id="myTopnav">
+  <a  href="#">Home</a>
+  {% if g.user.username=='admin' %}
+  <a  href="#">View Authors</a>
+  {% endif %}
+  <a  href="#">View Posts</a>
+  <a href="#">Search Posts</a>
+  {% if g.user %}
+          <a href="#" style="float:right"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a>
+        <a style="float:right"><b>{{ g.user.username }}</b></a>
+
+          {% else %}
+           <a style="float:right" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i>Register</a>
+           <a style="float:right" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i>Login</a>
+            <!--<li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}"><i class="fa fa-user-o" aria-hidden="true"></i>Log In</a>-->
+          {% endif %}
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+</div>
+
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <!--<div class="flash"></div>-->
+    <div class="container">
+    <div class="alert alert-danger" role="alert">{{ message }}</div>
+    </div>
+  {% endfor %}
+  {% block content %}
+
+{% endblock %}
+
+</body>
+</html>

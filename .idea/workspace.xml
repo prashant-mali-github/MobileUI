@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5be35e53-b2c1-4f26-823d-0f2d603b99a2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customers/customers.py" beforeDir="false" afterPath="$PROJECT_DIR$/customers/customers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/items/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/items/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobileshop.db" beforeDir="false" afterPath="$PROJECT_DIR$/mobileshop.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/orders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/static priya mobile/base1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static priya mobile/base1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/static priya mobile/customers/viewcustomers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static priya mobile/customers/viewcustomers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/static priya mobile/items/viewitems.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static priya mobile/items/viewitems.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/adduser.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/adduser.py" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/.idea/flask-tutorial.iml" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/.idea/flask-tutorial.iml" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/.idea/misc.xml" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/.idea/misc.xml" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/.idea/vcs.xml" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/.idea/workspace.xml" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/flaskalchemy/__init__.py" beforeDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/flaskalchemy/auth.py" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/flaskalchemy/auth.py" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/flaskalchemy/blog.db" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/flaskalchemy/blog.db" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/flaskalchemy/blog.py" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/flaskalchemy/blog.py" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/flaskalchemy/static/style.css" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/flaskalchemy/static/style.css" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/flaskalchemy/template/base1.html" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/flaskalchemy/template/base1.html" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/flaskalchemy/template/blog/update.html" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/flaskalchemy/template/blog/update.html" afterDir="false" />
+      <change beforePath="E:/BlogDemo/flask-tutorial/flaskalchemy/template/show_blog.html" beforeDir="false" afterPath="E:/BlogDemo/flask-tutorial/flaskalchemy/template/show_blog.html" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/create_models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="33" column="10" lean-forward="true" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/static priya mobile/customers/viewcustomers.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="86" column="77" lean-forward="true" selection-start-line="86" selection-start-column="77" selection-end-line="86" selection-end-column="77" />
+              <folding>
+                <element signature="e#6012#6018#0" expanded="true" />
+                <element signature="e#6018#6024#0" expanded="true" />
+                <element signature="e#6385#6391#0" expanded="true" />
+                <element signature="e#6391#6397#0" expanded="true" />
+                <element signature="e#7052#7058#0" expanded="true" />
+                <element signature="e#7058#7064#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/static priya mobile/base1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="156" column="37" lean-forward="true" selection-start-line="156" selection-start-column="37" selection-end-line="156" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/orders/orders.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customers/customers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="57" column="32" lean-forward="true" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/static priya mobile/items/viewitems.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="82" column="67" lean-forward="true" selection-start-line="82" selection-start-column="67" selection-end-line="82" selection-end-column="67" />
+              <folding>
+                <element signature="e#5885#5891#0" expanded="true" />
+                <element signature="e#6244#6250#0" expanded="true" />
+                <element signature="e#6250#6256#0" expanded="true" />
+                <element signature="e#6613#6619#0" expanded="true" />
+                <element signature="e#6619#6625#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/static priya mobile/items/saleitem.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/static priya mobile/orders/vieworders.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="98" column="38" lean-forward="true" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/items/items.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#0#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/users/adduser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="e#0#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>src=&quot;</find>
+      <find>bg</find>
+      <find>&lt;img src=&quot;images\icon\mshop.png&quot;&gt;</find>
+      <find>app</find>
+      <find>auth</find>
+      <find>customer</find>
+      <find>item</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>src=&quot;static/</replace>
+      <replace>blog</replace>
+      <replace>auth</replace>
+      <replace>customer</replace>
+      <replace>item</replace>
+      <replace>order</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\Prashant\PycharmProjects\MobileFlash\templates\static priya mobile\items</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/users/__init__.py" />
+        <option value="$PROJECT_DIR$/templates/main/index.html" />
+        <option value="E:/BlogDemo/flask-tutorial/flaskalchemy/__init__.py" />
+        <option value="E:/BlogDemo/flask-tutorial/flaskalchemy/app.py" />
+        <option value="E:/BlogDemo/flask-tutorial/flaskalchemy/auth.py" />
+        <option value="E:/BlogDemo/flask-tutorial/flaskalchemy/blog.py" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/register.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/form.html" />
+        <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/users/adduser.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/login.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/users/loginuser.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/customers/addcustomer.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/items/additem.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/base2.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/base.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/orders/addorders.html" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/orders/createorder.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/items/edititem.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/items/updateitem.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/orders/viewcustomers.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/customers/editcustomer.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/items/saleitem.html" />
+        <option value="$PROJECT_DIR$/models/create_models.py" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/orders/vieworders.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/index.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/orders/viewbills.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/orders/dashboard.html" />
+        <option value="$PROJECT_DIR$/users/adduser.py" />
+        <option value="$PROJECT_DIR$/orders/orders.py" />
+        <option value="$PROJECT_DIR$/items/items.py" />
+        <option value="$PROJECT_DIR$/customers/customers.py" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/customers/viewcustomers.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/base1.html" />
+        <option value="$PROJECT_DIR$/templates/static priya mobile/items/viewitems.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="687" />
+    <option name="height" value="887" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MobileFlash" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MobileFlash" type="462c0819:PsiDirectoryNode" />
+              <item name="customers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MobileFlash" type="462c0819:PsiDirectoryNode" />
+              <item name="items" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MobileFlash" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MobileFlash" type="462c0819:PsiDirectoryNode" />
+              <item name="orders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MobileFlash" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MobileFlash" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static priya mobile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MobileFlash" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static priya mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="customers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MobileFlash" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static priya mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="items" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlogDemo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlogDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="flask-tutorial" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlogDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="flask-tutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="flaskalchemy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlogDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="flask-tutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="flaskalchemy" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MobileFlash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlogDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="flask-tutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="flaskalchemy" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="E:/BlogDemo" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Prashant\PycharmProjects\MobileFlash\templates\static priya mobile\orders" />
+      <recent name="C:\Users\Prashant\PycharmProjects\MobileFlash" />
+      <recent name="C:\Users\Prashant\PycharmProjects\MobileFlash\templates\static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Prashant\PycharmProjects\MobileFlash\static" />
+      <recent name="C:\Users\Prashant\PycharmProjects\MobileFlash\templates\static priya mobile" />
+      <recent name="C:\Users\Prashant\PycharmProjects\MobileFlash\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.manage">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MobileFlash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MobileFlash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.manage" />
+        <item itemvalue="Python.app" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5be35e53-b2c1-4f26-823d-0f2d603b99a2" name="Default Changelist" comment="" />
+      <created>1561782131988</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1561782131988</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.14195184" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.50416666" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="2" weight="0.32916668" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32916668" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.32916668" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.49027777" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14195184" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.12916666" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="2" weight="0.32916668" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32916668" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.32916668" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.49027777" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/users/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static/js/main.js" />
+    <entry file="file://$PROJECT_DIR$/static/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/__init__.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jinja2/lexer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="689" selection-start-line="689" selection-end-line="689" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/grid.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/login.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#1#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/template/auth/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/users/adduser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/template/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/users/loginuser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="47" lean-forward="true" selection-start-line="36" selection-start-column="44" selection-end-line="39" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/items/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/template/pagination.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/base2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/badge.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/template/cssdemo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="24" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/orders/addorders.html" />
+    <entry file="file://$PROJECT_DIR$/barcode.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="82" column="23" lean-forward="true" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/blog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="111" lean-forward="true" selection-start-line="88" selection-end-line="111" />
+          <folding>
+            <element signature="e#0#97#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/items/edititem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="106" lean-forward="true" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/orders/viewcustomers.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/customers/addcustomer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-end-line="163" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/barcode.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/template/blog/update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="28" column="105" lean-forward="true" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/customers/editcustomer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/items/additem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/template/show_blog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/items/updateitem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="19" column="154" selection-start-line="19" selection-start-column="95" selection-end-line="19" selection-end-column="154" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/BlogDemo/flask-tutorial/flaskalchemy/template/base1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/orders/createorder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" lean-forward="true" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="709" column="12" lean-forward="true" selection-start-line="573" selection-start-column="12" selection-end-line="709" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/orders/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="138" column="30" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/orders/viewbills.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="57" column="53" lean-forward="true" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="72" column="17" lean-forward="true" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/adduser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/orders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/items/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/create_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="33" column="10" lean-forward="true" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/orders/vieworders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="98" column="38" lean-forward="true" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customers/customers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="57" column="32" lean-forward="true" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/items/saleitem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/base1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="156" column="37" lean-forward="true" selection-start-line="156" selection-start-column="37" selection-end-line="156" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/customers/viewcustomers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="86" column="77" lean-forward="true" selection-start-line="86" selection-start-column="77" selection-end-line="86" selection-end-column="77" />
+          <folding>
+            <element signature="e#6012#6018#0" expanded="true" />
+            <element signature="e#6018#6024#0" expanded="true" />
+            <element signature="e#6385#6391#0" expanded="true" />
+            <element signature="e#6391#6397#0" expanded="true" />
+            <element signature="e#7052#7058#0" expanded="true" />
+            <element signature="e#7058#7064#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static priya mobile/items/viewitems.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="82" column="67" lean-forward="true" selection-start-line="82" selection-start-column="67" selection-end-line="82" selection-end-column="67" />
+          <folding>
+            <element signature="e#5885#5891#0" expanded="true" />
+            <element signature="e#6244#6250#0" expanded="true" />
+            <element signature="e#6250#6256#0" expanded="true" />
+            <element signature="e#6613#6619#0" expanded="true" />
+            <element signature="e#6619#6625#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

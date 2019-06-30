@@ -1,0 +1,138 @@
+{% extends 'static priya mobile/base1.html' %}
+{% block content %}
+
+             <div class="main-content">
+                    <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Edit Customer</strong>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="cname" class=" form-control-label">Customer Name</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="cname" value="{{ request.form['cname'] or customer['customer_name']}}" name="cname" placeholder="Customer Name" class="form-control">
+                                                    <small class="form-text text-muted">please enter customer first name</small>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="address" class=" form-control-label">Address</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea name="address" style="resize:none" id="textarea-input" rows="2"  placeholder="Enter Address" class="form-control">{{ request.form['address'] or customer['c_address']}}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="mno" class=" form-control-label">Customer Contact No:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="mno" name="mno" value="{{ request.form['mno'] or customer['c_mobileno']}}" placeholder="Enter Mobile No" class="form-control">
+                                                    <small class="help-block form-text">Please enter customer mobile mo</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email" class=" form-control-label">Customer Email</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="email" id="email" name="email" value="{{ request.form['email'] or customer['c_email']}}" placeholder="Enter Email" class="form-control">
+                                                    <small class="help-block form-text">Please enter your email</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                            <div class="form-actions form-group">
+                                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                                            </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+
+                                            <!--<div class="row form-group">-->
+                                                <!--<div class="col col-md-3">-->
+                                                    <!--<label for="select" class=" form-control-label">Select</label>-->
+                                                <!--</div>-->
+                                                <!--<div class="col-12 col-md-9">-->
+                                                    <!--<select name="select" id="select" class="form-control">-->
+                                                        <!--<option value="0">Please select</option>-->
+                                                        <!--<option value="1">Option #1</option>-->
+                                                        <!--<option value="2">Option #2</option>-->
+                                                        <!--<option value="3">Option #3</option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="row form-group">-->
+                                                <!--<div class="col col-md-3">-->
+                                                    <!--<label for="selectLg" class=" form-control-label">Select Large</label>-->
+                                                <!--</div>-->
+                                                <!--<div class="col-12 col-md-9">-->
+                                                    <!--<select name="selectLg" id="selectLg" class="form-control-lg form-control">-->
+                                                        <!--<option value="0">Please select</option>-->
+                                                        <!--<option value="1">Option #1</option>-->
+                                                        <!--<option value="2">Option #2</option>-->
+                                                        <!--<option value="3">Option #3</option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="row form-group">-->
+                                                <!--<div class="col col-md-3">-->
+                                                    <!--<label for="selectSm" class=" form-control-label">Select Small</label>-->
+                                                <!--</div>-->
+                                                <!--<div class="col-12 col-md-9">-->
+                                                    <!--<select name="selectSm" id="SelectLm" class="form-control-sm form-control">-->
+                                                        <!--<option value="0">Please select</option>-->
+                                                        <!--<option value="1">Option #1</option>-->
+                                                        <!--<option value="2">Option #2</option>-->
+                                                        <!--<option value="3">Option #3</option>-->
+                                                        <!--<option value="4">Option #4</option>-->
+                                                        <!--<option value="5">Option #5</option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="row form-group">-->
+                                                <!--<div class="col col-md-3">-->
+                                                    <!--<label for="disabledSelect" class=" form-control-label">Disabled Select</label>-->
+                                                <!--</div>-->
+                                                <!--<div class="col-12 col-md-9">-->
+                                                    <!--<select name="disabledSelect" id="disabledSelect" disabled="" class="form-control">-->
+                                                        <!--<option value="0">Please select</option>-->
+                                                        <!--<option value="1">Option #1</option>-->
+                                                        <!--<option value="2">Option #2</option>-->
+                                                        <!--<option value="3">Option #3</option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="row form-group">-->
+                                                <!--<div class="col col-md-3">-->
+                                                    <!--<label for="multiple-select" class=" form-control-label">Multiple select</label>-->
+                                                <!--</div>-->
+                                                <!--<div class="col col-md-9">-->
+                                                    <!--<select name="multiple-select" id="multiple-select" multiple="" class="form-control">-->
+                                                        <!--<option value="1">Option #1</option>-->
+                                                        <!--<option value="2">Option #2</option>-->
+                                                        <!--<option value="3">Option #3</option>-->
+                                                        <!--<option value="4">Option #4</option>-->
+                                                        <!--<option value="5">Option #5</option>-->
+                                                        <!--<option value="6">Option #6</option>-->
+                                                        <!--<option value="7">Option #7</option>-->
+                                                        <!--<option value="8">Option #8</option>-->
+                                                        <!--<option value="9">Option #9</option>-->
+                                                        <!--<option value="10">Option #10</option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+{% endblock %}
