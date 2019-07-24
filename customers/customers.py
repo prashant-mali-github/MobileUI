@@ -7,13 +7,6 @@ from app import db
 customer = Blueprint('customer', __name__, template_folder='template')
 
 
-@customer.route("/home")
-def home():
-    return render_template("static priya mobile/orders/dashboard.html")
-
-
-
-
 @customer.route("/viewcustomers")
 def viewcustomers():
     customers = Customer.query.all()

@@ -6,12 +6,6 @@ from app import db
 
 auth = Blueprint('auth', __name__, template_folder='template')
 
-
-@auth.route("/home")
-def home():
-    return render_template("static priya mobile/orders/dashboard.html")
-
-
 @auth.route('/register/', methods=['GET', 'POST'])
 def register():
     if request.method == "POST":
@@ -29,11 +23,8 @@ def register():
                 db.session.add(register)
                 db.session.commit()
             else:
-                error="Username already exist"
+                error = "Username already exist"
                 flash(error)
-                # error=""
-                # flash(error)
-            return redirect(url_for("auth.login"))
         else:
             error="Password and confirm password not match"
             flash(error)
@@ -47,16 +38,15 @@ def login():
         error = None
         uname = request.form["username"]
         passw = request.form["password"]
-
         user = User.query.filter_by(username=uname).first()
         if user and check_password_hash(user.password, passw):
-            session.clear()
             session['user_id'] = user.id
-            return redirect(url_for('auth.home'))
+            return redirect(url_for('order.totalsale'))
         else:
             error = "Please enter valid credential"
             flash(error,".......errtor")
             print(error,"...............")
+            return render_template("static priya mobile/users/loginuser.html")
     return render_template("static priya mobile/users/loginuser.html")
 
 
@@ -64,7 +54,6 @@ def login():
 @auth.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
-
     if user_id is None:
         g.user = None
     else:

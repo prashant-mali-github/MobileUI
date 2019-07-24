@@ -6,11 +6,6 @@ from app import db
 
 order = Blueprint('order', __name__, template_folder='template')
 
-
-@order.route("/home")
-def home():
-    return render_template("static priya mobile/orders/dashboard.html")
-
 # import random
 # @order.route('/addorder/', methods=['GET', 'POST'])
 # def addorders():
@@ -69,6 +64,13 @@ def viewbills():
     return render_template('static priya mobile/orders/viewbills.html',bills=bills)
 
 
+@order.route('/<int:id>/deletebill')
+def deletebills(id):
+    bill = Bill.query.filter_by(id=int(id)).first()
+    db.session.delete(bill)
+    db.session.commit()
+    return redirect(url_for('order.viewbills'))
+
 @order.route('/totalsales')
 def totalsale():
     orders = SalesItems.query.all()
@@ -85,6 +87,6 @@ def totalsale():
 
 @order.route('/searchorders')
 def searchorders():
-    orders = orders.query.all()
+    orders = SalesItems.query.all()
     return render_template('static priya mobile/base.html',orders=orders)
 

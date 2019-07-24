@@ -48,14 +48,16 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </th>
+                                                <th>ID</th>
                                                 <th>Item Name</th>
-                                                <th>Item Quantity</th>
                                                 <th>Price</th>
+                                                <th>Item Quantity</th>
                                                 <th>Purchase date</th>
                                                 <th>Item Actions</th>
                                             </tr>
                                         </thead>
                                         {% for item in items %}
+                                        {% if item.item_quantity|int > 0 %}
                                         <tbody>
                                             <tr class="tr-shadow">
                                                 <td>
@@ -64,6 +66,12 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </td>
+                                                <td>
+                                                    {{ item.i_id }}
+                                                </td>
+                                                <!--<td>-->
+                                                    <!--{{ item.barcode }}-->
+                                                <!--</td>-->
                                                 <td>
                                                     {{ item.item_name }}
                                                 </td>
@@ -199,6 +207,7 @@
                                                 <!--</td>-->
                                             <!--</tr>-->
                                         </tbody>
+                                        {% endif %}
                                         {% endfor %}
                                     </table>
                                 </div>
