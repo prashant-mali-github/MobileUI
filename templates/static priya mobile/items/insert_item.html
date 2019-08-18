@@ -8,37 +8,52 @@
                             <div class="col-lg-9">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Order Register</strong>
+                                        <strong>Add Items</strong>
                                     </div>
                                     <div class="card-body card-block">
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="c_id" class=" form-control-label">Customer ID :</label>
+                                                    <label for="iname" class=" form-control-label">Item Name</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="c_id" name="c_id" placeholder="Enter Customer ID" class="form-control">
-                                                    <small class="help-block form-text">Please enter customer id mo</small>
+                                                    <select name="iname" id="iname" class="form-control">
+                                                        <option value="0">Please select</option>
+                                                        <option value="Samsung">Samsung</option>
+                                                        <option value="Red MI">Red MI</option>
+                                                        <option value="Real ME">Real ME</option>
+                                                        <option value="SAMSUNG GALAXY S10 PLUS">SAMSUNG GALAXY S10 PLUS.</option>
+                                                         <option value="HUAWEI P30 PRO">HUAWEI P30 PRO</option>
+                                                        <option value="ONEPLUS 7 PRO">ONEPLUS 7 PRO</option>
+                                                        <option value="GOOGLE PIXEL 3">GOOGLE PIXEL 3</option>
+                                                    </select>
+                                                    <small class="form-text text-muted">please enter item name</small>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="i_id" class=" form-control-label">Item ID :</label>
+                                                    <label for="quantity" class=" form-control-label">Quantity</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="i_id" name="i_id" placeholder="Enter Item ID" class="form-control">
-                                                    <small class="help-block form-text">Please enter item id mo</small>
-                                                </div>
-                                            </div><div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="qauntity" class=" form-control-label">Quantity:</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="quantity" name="quantity" placeholder="Enter Qunatity" class="form-control">
-                                                    <small class="help-block form-text">Please enter quantity</small>
+                                                    <select name="quantity" id="quantity" class="form-control">
+                                                        <option value="0">Please select</option>
+                                                        <option value="5">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="20">20</option>
+                                                        <option value="50">50</option>
+                                                    </select>
+                                                    <small class="form-text text-muted">please enter quantity </small>
                                                 </div>
                                             </div>
-
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="price" class=" form-control-label">Item Price:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="price" name="price" placeholder="Enter Item Price" class="form-control" required>
+                                                    <small class="help-block form-text">Please enter item price</small>
+                                                </div>
+                                            </div>
                                             <div class="row form-group">
                                             <div class="form-actions form-group">
                                                 <button type="submit" class="btn btn-success btn-sm">Submit</button>
@@ -125,6 +140,6 @@
                                                         <!--<option value="10">Option #10</option>-->
                                                     <!--</select>-->
                                                 <!--</div>-->
-                                            <!--</div>-->
-{% endif %}
-                 {% endblock %}
+                  <!--</div>-->
+                 {% endif %}
+{% endblock %}

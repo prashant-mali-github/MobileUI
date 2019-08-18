@@ -23,22 +23,17 @@ def totalcustomer():
 def addcustomer():
     if request.method == "POST":
         error=None
-
         first_name = request.form['fname']
         last_name = request.form['lname']
         address = request.form['address']
         mno = request.form['mno']
         email = request.form['email']
-
-        if not first_name or not last_name or not address or not mno or not email:
-            flash('Please enter all the fields', 'error')
-        else:
-            name = str(first_name) +"  " + str(last_name)
-            # for i in range(50):
-            customer = Customer(customer_name=name, c_address=address, c_mobileno=mno, c_email=email)
-            db.session.add(customer)
-            db.session.commit()
-            return redirect(url_for('customer.viewcustomers'))
+        name = str(first_name) +"  " + str(last_name)
+        # for i in range(50):
+        customer = Customer(customer_name=name, c_address=address, c_mobileno=mno, c_email=email)
+        db.session.add(customer)
+        db.session.commit()
+        return redirect(url_for('customer.viewcustomers'))
     return render_template("static priya mobile/customers/addcustomer.html")
 
 

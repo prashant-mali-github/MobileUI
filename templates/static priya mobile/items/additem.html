@@ -1,6 +1,6 @@
 {% extends 'static priya mobile/base1.html' %}
 {% block content %}
-
+{% if g.user %}
              <div class="main-content">
                     <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -125,5 +125,6 @@
                                                         <!--<option value="10">Option #10</option>-->
                                                     <!--</select>-->
                                                 <!--</div>-->
-                                            <!--</div>-->
+                  <!--</div>-->
+                 {% endif %}
 {% endblock %}

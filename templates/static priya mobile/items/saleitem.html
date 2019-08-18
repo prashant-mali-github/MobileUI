@@ -1,6 +1,6 @@
 {% extends 'static priya mobile/base1.html' %}
 {% block content %}
-
+{% if g.user %}
              <div class="main-content">
                     <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -17,8 +17,13 @@
                                                     <label for="c_id" class=" form-control-label">Customer ID :</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="c_id" name="c_id" placeholder="Enter Customer ID" class="form-control" required>
-                                                    <small class="help-block form-text">Please enter customer id mo</small>
+                                                     <select name="c_id" id="c_id" class="form-control-md form-control">
+                                                        <option value="0">Please select customer</option>
+                                                        {% for customer in customers %}
+                                                        <option value="{{ customer.customer_name}}">{{ customer.customer_name }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                    <small class="help-block form-text">Please enter customer id</small>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -118,4 +123,5 @@
                                                     <!--</select>-->
                                                 <!--</div>-->
                                             <!--</div>-->
-{% endblock %}
+{% endif %}
+                 {% endblock %}

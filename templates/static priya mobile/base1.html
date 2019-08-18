@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            {% if g.user.username=='Prashant' %}
+            {% if g.user %}
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
@@ -216,7 +216,7 @@
                     <img src="{{ url_for('static',filename='images/icon/mshop.png') }}" alt="mobileshop" id="i1"/>Mobileshopname
                 </a>
             </div>
-            {% if g.user.username=='Prashant' %}
+            {% if g.user %}
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
@@ -253,34 +253,34 @@
                         </li>
 
 
-                        <li>
-                            <a class="js-arrow" href="#">
-                                <i class="fa fa-cart-arrow-down"></i>Supplier</a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                    <li>
-                                        <a href="form.html">Supplier Register</a>
-                                    </li>
-                                    <li>
-                                        <a href="viewsupplier.html">View Supplier</a>
-                                    </li>
-                                    <li>
-                                        <a href="index3.html">Change/Edit Supplier</a>
-                                    </li>
-                                </ul>
-                        </li>
+<!--                        <li>-->
+<!--                            <a class="js-arrow" href="#">-->
+<!--                                <i class="fa fa-cart-arrow-down"></i>Supplier</a>-->
+<!--                                <ul class="list-unstyled navbar__sub-list js-sub-list">-->
+<!--                                    <li>-->
+<!--                                        <a href="form.html">Supplier Register</a>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <a href="viewsupplier.html">View Supplier</a>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <a href="index3.html">Change/Edit Supplier</a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                        </li>-->
 
                         <li>
                             <a class="js-arrow" href="#">
                                 <i class="fa fa-address-card"></i>Customer</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="{{ url_for('customer.addcustomer') }}"><i class="fa fa-address-card"></i>Add Customer</a>
+                                        <a href="{{ url_for('customer.addcustomer') }}" id="addcustomer"><i class="fa fa-address-card"></i>Add Customer</a>
                                     </li>
                                     <li>
-                                       <a href="{{ url_for('customer.viewcustomers') }}"><i class="fa fa-user-circle"></i>View Customer</a>
+                                       <a href="{{ url_for('customer.viewcustomers') }}" id="viewcustomer"><i class="fa fa-user-circle"></i>View Customer</a>
                                     </li>
                                     <li>
-                                        <a href="index3.html"><i class="fa fa-bug"></i>Billing Customer</a>
+                                        <a href="{{ url_for('order.viewbills') }}"><i class="fa fa-bug"></i>Billing Customer</a>
                                     </li>
 
                                 </ul>
@@ -292,58 +292,68 @@
                             <a class="js-arrow" href="#">
                                 <i class="fa fa-cart-plus"></i>Sale</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
+
                                     <li>
-                                        <a href="{{ url_for('order.vieworders') }}">View Orders</a>
+                                        <a href="{{ url_for('order.sale_items') }}">Sale Item</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ url_for('order.vieworders') }}" id="view_orders">View Orders</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url_for('order.viewbills') }}">View Bills</a>
+                                        <a href="{{ url_for('order.viewbills') }}" id="view_bills">View Bills</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url_for('order.totalsale') }}">Total Sale</a>
+                                        <a href="{{ url_for('order.totalsale') }}" id="total_sale">Total Sale</a>
                                     </li>
                                 </ul>
                         </li>
+
+
+<!--                        <li>-->
+<!--                            <a class="js-arrow" href="#">-->
+<!--                                <i class="fa fa-address-book"></i>Reports</a>-->
+<!--                                <ul class="list-unstyled navbar__sub-list js-sub-list">-->
+<!--                                    <li>-->
+<!--                                        <a href="index.html">Dashboard</a>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <a href="index2.html">View Customer</a>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <a href="index3.html">Change Passward</a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                        </li>-->
+
+
 
 
                         <li>
                             <a class="js-arrow" href="#">
-                                <i class="fa fa-address-book"></i>Reports</a>
+                                <i class="fa fa-share"></i>Settigns</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    {% if g.user.username == 'admin'%}
                                     <li>
-                                        <a href="index.html">Dashboard</a>
+                                        <a href="{{ url_for('auth.view_users') }}">View Users</a>
+                                    </li>
+                                    {% endif %}
+                                    <li>
+                                        <a href="{{ url_for('customer.viewcustomers') }}">View Customers</a>
                                     </li>
                                     <li>
-                                        <a href="index2.html">View Customer</a>
+                                        <a href="{{ url_for('item.viewitems') }}">View Items</a>
                                     </li>
                                     <li>
-                                        <a href="index3.html">Change Passward</a>
+                                        <a href="{{ url_for('auth.change_password') }}">Change Password</a>
                                     </li>
                                 </ul>
                         </li>
 
-
-
-
-                        <li>
-                            <a class="js-arrow" href="#">
-                                <i class="fa fa-share"></i>SendEmail</a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                    <li>
-                                        <a href="index.html">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="index2.html">View Customer</a>
-                                    </li>
-                                    <li>
-                                        <a href="index3.html">Change Passward</a>
-                                    </li>
-                                </ul>
-                        </li>
-
-                          <li>
-                            <a class="js-arrow" href="Map.html">
-                                <i class="fa fa-location-arrow"></i>ContactUs</a>
-                          </li>
+<!--                          <li>-->
+<!--                            <a class="js-arrow" href="Map.html">-->
+<!--                                <i class="fa fa-location-arrow"></i>ContactUs</a>-->
+<!--                          </li>-->
 
                         <!--<li>
                             <a href="chart.html">
@@ -553,7 +563,7 @@
                                         </div>
                                     </div>-->
                                 </div>
-                                {% if g.user.username=='Prashant' %}
+                                {% if g.user %}
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
@@ -614,6 +624,7 @@
                         <div class="container">
                         <div class="alert alert-danger" role="alert">{{ message }}</div>
                         </div>
+                      {% if g.user %}
                       <div class="row m-t-25">
                                     <div class="col-sm-6 col-lg-3">
                                         <div class="overview-item overview-item--c1">
@@ -688,6 +699,8 @@
                                         </div>
                                     </div>
                         </div>
+                        {% endif %}
+                        {% if g.user %}
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="au-card recent-report">
@@ -750,6 +763,7 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
                       {% endfor %}
                        {% block content %}
                         {% endblock %}
@@ -780,6 +794,7 @@
     <script src="{{ url_for('static', filename = 'vendor/chartjs/Chart.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename = 'vendor/select2/select2.min.js') }}">
     </script>
+
     <!-- Main JS-->
     <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
 

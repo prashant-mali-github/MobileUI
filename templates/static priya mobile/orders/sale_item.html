@@ -1,4 +1,22 @@
+{% include 'static priya mobile/dropselect.html' %}
 {% extends 'static priya mobile/base1.html' %}
+{% block script %}
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    function addSubmit(ev) {
+      ev.preventDefault();
+      $.ajax({
+        method: 'POST',
+        url: {{ url_for('order.vieworders')|tojson }},
+        data: $(this).serialize()
+      }).done(addShow);
+    }
+    function addShow(data) {
+      $('.table-responsive table-responsive-data2').text(data.result);
+    }
+    $('#sale_item').on('submit', addSubmit);
+  </script>
+{% endblock %}
 {% block content %}
 {% if g.user %}
              <div class="main-content">
@@ -11,32 +29,60 @@
                                         <strong>Order Register</strong>
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <form id="sale_item" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="c_id" class=" form-control-label">Customer ID :</label>
+                                                    <label for="c_id" class=" form-control-label">Customer Name :</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="c_id" name="c_id" placeholder="Enter Customer ID" class="form-control">
-                                                    <small class="help-block form-text">Please enter customer id mo</small>
+                                                    <select name="c_id" id="c_id" class="form-control-md form-control">
+                                                        <option value="0">Please select customer</option>
+                                                        {% for customer in customers %}
+                                                        <option value="{{ customer.customer_name}}">{{ customer.customer_name }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                    <small class="help-block form-text">Please select customer name</small>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="i_id" class=" form-control-label">Item ID :</label>
+                                                    <label for="i_id" class=" form-control-label">Item Name :</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="i_id" name="i_id" placeholder="Enter Item ID" class="form-control">
-                                                    <small class="help-block form-text">Please enter item id mo</small>
+                                                    <select name="i_id" id="i_id" class="selectpicker" multiple data-live-search="true">
+                                                        <option value="0">Please select item</option>
+                                                        {% for item in items %}
+                                                        {% if item.item_quantity|int > 0 %}
+                                                        <option value="{{ item.item_name}}">{{ item.item_name}}({{ item.item_quantity }})</option>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                    </select>
+                                                    <small class="help-block form-text">Please select item name</small>
                                                 </div>
                                             </div><div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="qauntity" class=" form-control-label">Quantity:</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="quantity" name="quantity" placeholder="Enter Qunatity" class="form-control">
+                                                        <input type="text" id="quantity" name="quantity" placeholder="Enter Qunatity" class="form-control" required>
+<!--                                                    <select name="quantity" id="quantity" class="form-control-md form-control">-->
+<!--                                                        <option value="0">Please select item quantities</option>-->
+<!--                                                        <option value="1">1</option>-->
+<!--                                                        <option value="2">2</option>-->
+<!--                                                        <option value="3">3</option>-->
+<!--                                                        <option value="4">4</option>-->
+<!--                                                        <option value="5">5</option>-->
+<!--                                                        <option value="10">10</option>-->
+<!--                                                        <option value="15">15</option>-->
+<!--                                                        <option value="20">20</option>-->
+<!--                                                        <option value="30">30</option>-->
+<!--                                                        <option value="50">50</option>-->
+<!--                                                    </select>-->
                                                     <small class="help-block form-text">Please enter quantity</small>
                                                 </div>
+                                            <div class="form-actions form-group">
+                                                <button type="text" class="btn btn-success btn-sm">Add sale</button>
+                                            </div>
                                             </div>
 
                                             <div class="row form-group">
@@ -111,20 +157,20 @@
                                                 <!--<div class="col col-md-3">-->
                                                     <!--<label for="multiple-select" class=" form-control-label">Multiple select</label>-->
                                                 <!--</div>-->
-                                                <!--<div class="col col-md-9">-->
-                                                    <!--<select name="multiple-select" id="multiple-select" multiple="" class="form-control">-->
-                                                        <!--<option value="1">Option #1</option>-->
-                                                        <!--<option value="2">Option #2</option>-->
-                                                        <!--<option value="3">Option #3</option>-->
-                                                        <!--<option value="4">Option #4</option>-->
-                                                        <!--<option value="5">Option #5</option>-->
-                                                        <!--<option value="6">Option #6</option>-->
-                                                        <!--<option value="7">Option #7</option>-->
-                                                        <!--<option value="8">Option #8</option>-->
-                                                        <!--<option value="9">Option #9</option>-->
-                                                        <!--<option value="10">Option #10</option>-->
-                                                    <!--</select>-->
-                                                <!--</div>-->
+<!--                                                <!--<div class="col col-md-9">&ndash;&gt;
+&lt;!&ndash;                                                    <select name="multiple-select" id="multiple-select" multiple="" class="form-control">&ndash;&gt;
+&lt;!&ndash;                                                        <option value="1">Option #1</option>&ndash;&gt;
+&lt;!&ndash;                                                        <option value="2">Option #2</option>&ndash;&gt;
+&lt;!&ndash;                                                        <option value="3">Option #3</option>&ndash;&gt;
+&lt;!&ndash;                                                        <option value="4">Option #4</option>&ndash;&gt;
+&lt;!&ndash;                                                        <option value="5">Option #5</option>&ndash;&gt;
+&lt;!&ndash;                                                        <option value="6">Option #6</option>&ndash;&gt;
+&lt;!&ndash;                                                        <option value="7">Option #7</option>&ndash;&gt;
+&lt;!&ndash;                                                        <option value="8">Option #8</option>&ndash;&gt;
+&lt;!&ndash;                                                        <option value="9">Option #9</option>&ndash;&gt;
+&lt;!&ndash;                                                        <option value="10">Option #10</option>&ndash;&gt;
+&lt;!&ndash;                                                    </select>&ndash;&gt;
+&lt;!&ndash;                                                </div>-->-->
                                             <!--</div>-->
 {% endif %}
                  {% endblock %}

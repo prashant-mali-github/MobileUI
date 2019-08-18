@@ -1,8 +1,9 @@
 from flask import Blueprint, render_template, redirect, request,flash,url_for,session,g
-from models.create_models import SalesItems,Customer,Items, Bill
+from models.create_models import SalesItems,Customer,Items, Bill,User
 import functools
 from werkzeug.security import check_password_hash
 from app import db
+import random
 
 order = Blueprint('order', __name__, template_folder='template')
 
@@ -54,7 +55,7 @@ def vieworders():
     sum = 0
     for order in orders:
         bill = Bill.query.filter_by(o_id=int(order.id)).first()
-        sum += int(bill.bill_amount)
+        #sum += int(bill.bill_amount)
     bills = Bill.query.all()
     return render_template('static priya mobile/orders/vieworders.html',orders=orders,bills=bills)
 
@@ -71,19 +72,118 @@ def deletebills(id):
     db.session.commit()
     return redirect(url_for('order.viewbills'))
 
+@order.route('/sale_item', methods=['GET', 'POST'])
+def sale_items():
+    global customers
+    customers = Customer.query.all()
+    items = Items.query.all()
+    if request.method == "POST":
+        customer_name = request.form.get('c_id')
+        item_names = request.form.getlist('i_id')
+        quantities = request.form.getlist('quantity')
+        #print(quantities,"....quantities")
+        #print(item_names, "....i_name")
+        quantities = str(quantities)
+        #print(quantities.strip("[']'").split(','),"....quantity")
+        ql = quantities.strip("[']'").split(',')
+        if not customer_name or not item_names or not quantities:
+            flash('Please enter all the fields', 'error')
+        else:
+            customer = Customer.query.filter_by(customer_name=customer_name).first()
+            if len(item_names)==1 and len(quantities)==1:
+                item = Items.query.filter_by(item_name=str(item_names[0])).first()
+                #print(item.item_quantity,"....quantity")
+                if not customer:
+                    error = "Invalid customer ID"
+                    flash(error)
+                if not item:
+                    error = "Invalid Item ID"
+                    flash(error)
+                available_quantity = int(item.item_quantity)
+                sale_quantity = int(quantities[0])
+                bill_amount = int(item.item_price) * int(sale_quantity)
+                import pyqrcode
+                url = pyqrcode.create(
+                    f"{item.item_name}------\n---{item.item_price}--\n----{item.item_quantity}---\n--Total={bill_amount}")
+                url.png('orders/bill.png', scale=8)
+                with open("orders/bill.png", "rb+") as f:
+                    x = f.read()
+                if available_quantity >= sale_quantity:
+                    order_id = random.randint(1000000000, 999999999999)
+                    order = SalesItems(id=order_id, c_id=customer.c_id, i_id=item.i_id, sale_quantity=sale_quantity)
+                    db.session.add(order)
+                    db.session.commit()
+                    item.item_quantity = available_quantity - sale_quantity
+                    bill = Bill(o_id=order_id, bill_amount=bill_amount, bill_barcode=x)
+                    db.session.add_all([item, bill])
+                    db.session.commit()
+                    return redirect(url_for('order.totalsale'))
+                else:
+                    error = "Please enter less sale quantity than available quantity"
+                    flash(error)
+            elif len(item_names)>1 and len(quantities)>1:
+                bills =[]
+                orders = []
+                bills_amount = []
+                items = []
+                item_quantities = dict(zip(item_names, ql))
+                print(item_quantities,"......dictioanry")
+                for item_name , quantity in item_quantities.items():
+                    item = Items.query.filter_by(item_name=str(item_name)).first()
+                    print(item.item_quantity,"....quantity")
+                    print(item_name, "....item_name")
+                    available_quantity = int(item.item_quantity)
+                    sale_quantity = int(quantity)
+                    bill_amount = int(item.item_price) * int(sale_quantity)
+                    print(bill_amount,"....bill_amount")
+                    #bills_amount.append(bill_amount)
+                    #bills_amounts = sum(bills_amount)
+                    order_id = random.randint(1000000000, 999999999999)
+                    import pyqrcode
+                    url = pyqrcode.create(
+                        f"{item.item_name}------\n---{item.item_price}--\n----{item.item_quantity}---\n--Total={bill_amount}")
+                    url.png('orders/bill.png', scale=8)
+                    with open("orders/bill.png", "rb+") as f:
+                        x = f.read()
+                    if available_quantity >= sale_quantity:
+                        order = SalesItems(id=order_id, c_id=customer.c_id, i_id=item.i_id, sale_quantity=sale_quantity)
+                        print(order_id,".....order_id")
+                        print(item.item_name,"...name")
+                        db.session.add(order)
+                        #db.session.commit()
+                        item.item_quantity = available_quantity - sale_quantity
+                        print("order", order_id)
+                        bill = Bill(o_id=order_id, bill_amount=bill_amount, bill_barcode=x)
+                        db.session.add_all([item,bill])
+                        #orders.append(order)
+                        #items.append(item)
+                        #db.session.commit()
+                    db.session.commit()
+                    print(orders, "..orders")
+                    print(items, "...items")
+                    return redirect(url_for('order.vieworders'))
+                # else:
+                #     error = "Please enter less sale quantity than available quantity"
+                #     flash(error)
+
+    return render_template('static priya mobile/orders/sale_item.html', customers=customers, items=items)
+
 @order.route('/totalsales')
 def totalsale():
     orders = SalesItems.query.all()
     customers = Customer.query.all()
+    user = User.query.all()
     items = Items.query.all()
     customers = len(customers)
     items = len(items)
     sum = 0
     for order in orders:
         bill = Bill.query.filter_by(o_id=int(order.id)).first()
-        sum += int(bill.bill_amount)
+        #sum += int(bill.bill_amount)
     bills = Bill.query.all()
-    return render_template('static priya mobile/orders/dashboard.html',sum=sum,customers=customers,items=items)
+    total_orders = len(orders)
+    users = len(user)
+    return render_template('static priya mobile/orders/dashboard.html',sum=sum,customers=customers,items=items,total_orders=total_orders,users=users)
 
 @order.route('/searchorders')
 def searchorders():

@@ -1,49 +1,12 @@
 {% extends 'static priya mobile/base1.html' %}
 {% block content %}
-                    {% if g.user %}
+{% if g.user %}
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">data table</h3>
-                                <div class="table-data__tool">
-                                    <div class="table-data__tool-left">
-                                        <div class="rs-select2--light rs-select2--md">
-                                            <select class="js-select2" name="property">
-                                                <option selected="selected">All Properties</option>
-                                                <option value="">Option 1</option>
-                                                <option value="">Option 2</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-                                        <div class="rs-select2--light rs-select2--sm">
-                                            <select class="js-select2" name="time">
-                                                <option selected="selected">Today</option>
-                                                <option value="">3 Days</option>
-                                                <option value="">1 Week</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-                                        <button class="au-btn-filter">
-                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                    </div>
-                                    <div class="table-data__tool-right">
-                                        <a href="{{ url_for('item.additems') }}"><button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>add item</button></a>
-                                        <a href="{{ url_for('item.report') }}"><button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>Exports</button></a>
 
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-<!--                                            <select class="js-select2" name="type">-->
-<!--                                                <option selected="selected">Export</option>-->
-<!--                                                <option value="">Option 1</option>-->
-<!--                                                <option value="">Option 2</option>-->
-<!--                                            </select>-->
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2" id="myTable">
+                                    <table class="table table-data2">
                                         <thead>
                                             <tr>
                                                 <th>
@@ -53,15 +16,14 @@
                                                     </label>
                                                 </th>
                                                 <th>ID</th>
-                                                <th>Item Name</th>
-                                                <th>Price</th>
-                                                <th>Item Quantity</th>
-                                                <th>Purchase date</th>
-                                                <th>Item Actions</th>
+                                                <th>User Name</th>
+                                                <th>User Role</th>
+                                                <th>Email</th>
+                                                <th>Date</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
-                                        {% for item in items %}
-                                        {% if item.item_quantity|int > -1 %}
+                                        {% for user in users %}
                                         <tbody>
                                             <tr class="tr-shadow">
                                                 <td>
@@ -71,49 +33,31 @@
                                                     </label>
                                                 </td>
                                                 <td>
-                                                    {{ item.i_id }}
-                                                </td>
-                                                <!--<td>-->
-                                                    <!--{{ item.barcode }}-->
-                                                <!--</td>-->
-                                                <td>
-                                                    {{ item.item_name }}
+                                                    {{ user.id }}
                                                 </td>
                                                 <td>
-                                                    {{ item.item_price }}
+                                                    {{ user.username }}
                                                 </td>
                                                 <td>
-                                                    {{ item.item_quantity }}
+                                                    {{ user.role }}
                                                 </td>
                                                 <td>
-                                                    {{ item.purchase_date }}
+                                                    {{ user.email }}
                                                 </td>
                                                 <td>
-                                                    <div class="table-data-feature">
-                                                        {% if item.item_quantity|int > 0 %}
-                                                        <a href="{{ url_for('item.saleitem', id=item.i_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Sale">
-                                                            <i class="fas fa-cart-arrow-down"></i>
-                                                    </button></a>&nbsp;&nbsp;
-                                                        {% else %}
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="empty" style="background-color: #f44336;">
-                                                            <i class="fab fa-accessible-icon"></i>
-                                                    </button>&nbsp;&nbsp;
-                                                        {% endif %}
-                                                        <a href="{{ url_for('item.updateitem' , id=item.i_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button></a>&nbsp;&nbsp;
-                                                        {% if item.item_quantity|int < 5 %}
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="status" style="background-color:yellow">
-                                                            <i class="fab fa-accessible-icon"></i>
-                                                        </button>
-                                                        {% elif item.item_quantity|int > 5 %}
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="status" style="background-color:green">
-                                                            <i class="fab fa-accessible-icon"></i>
-                                                        </button>
-                                                        {% endif %}
-                                                        <a href="{{ url_for('item.deleteitem' , id=item.i_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    {{ user.created_at}}
+                                                </td>
+                                                <td>
+                                                        <!--<button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal">-->
+										                        	<!--Large-->
+                                                        <!--</button>-->
+
+                                                        <a href="{{ url_for('auth.delete_user' , id=user.id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </button></a>&nbsp;&nbsp;
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                            <i class="zmdi zmdi-more"></i>
+                                                        </button>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -223,9 +167,8 @@
                                                 <!--</td>-->
                                             <!--</tr>-->
                                         </tbody>
-                                        {% endif %}
                                         {% endfor %}
                                     </table>
                                 </div>
-             {% endif %}
+              {% endif %}
           {% endblock %}

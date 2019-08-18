@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, request,flash,url_for,session,g
 from models.create_models import User
 import functools
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash,generate_password_hash
 from app import db
 
 auth = Blueprint('auth', __name__, template_folder='template')
@@ -22,6 +22,7 @@ def register():
                 register = User(username=username,role=role, password=password,email=email)
                 db.session.add(register)
                 db.session.commit()
+                return redirect(url_for('auth.login'))
             else:
                 error = "Username already exist"
                 flash(error)
@@ -49,6 +50,41 @@ def login():
             return render_template("static priya mobile/users/loginuser.html")
     return render_template("static priya mobile/users/loginuser.html")
 
+@auth.route("/change_password", methods=["GET", "POST"])
+def change_password():
+    if request.method == "POST":
+        error = None
+        uname = request.form["username"]
+        passw = request.form["password"]
+        new_password = request.form['new_password']
+        user = User.query.filter_by(username=uname).first()
+        user_pass = user.password
+        if check_password_hash(user_pass,new_password):
+            error = "password exist"
+            flash(error)
+            return render_template("static priya mobile/users/forgot_password.html")
+        else:
+            user.password = generate_password_hash(new_password)
+            db.session.add(user)
+            db.session.commit()
+            session.clear()
+            return render_template("static priya mobile/users/loginuser.html")
+    return render_template("static priya mobile/users/forgot_password.html")
+
+
+@auth.route('/users')
+def view_users():
+    users = User.query.all()
+    return render_template('static priya mobile/users/view_users.html', users=users)
+
+@auth.route('/<int:id>/deleteuser')
+def delete_user(id):
+    user = User.query.get(int(id))
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for('auth.view_users'))
+
+
 
 
 @auth.before_app_request
@@ -58,7 +94,6 @@ def load_logged_in_user():
         g.user = None
     else:
         g.user = User.query.filter_by(id=user_id).first()
-        print(g.user.role,".........role")
 
 @auth.route('/logout')
 def logout():

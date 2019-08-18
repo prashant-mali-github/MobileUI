@@ -1,5 +1,23 @@
 {% extends 'static priya mobile/base1.html' %}
+{% block script %}
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    function addSubmit(ev) {
+      ev.preventDefault();
+      $.ajax({
+        method: 'POST',
+        url: {{ url_for('customer.viewcustomers')|tojson }},
+        data: $(this).serialize()
+      }).done(addShow);
+    }
+    function addShow(data) {
+      $('.table-responsive table-responsive-data2').text(data.result);
+    }
+    $('#viewcustomer').on('click', addSubmit);
+  </script>
+{% endblock %}
 {% block content %}
+{% if g.user %}
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
@@ -27,7 +45,7 @@
                                     </div>
                                     <div class="table-data__tool-right">
                                          <a href="{{ url_for('customer.addcustomer') }}"><button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                             <i class="zmdi zmdi-plus"></i>add item</button></a>
+                                             <i class="zmdi zmdi-plus"></i>Add Customer</button></a>
                                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                             <select class="js-select2" name="type">
                                                 <option selected="selected">Export</option>
@@ -82,9 +100,6 @@
                                                 </td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>&nbsp;&nbsp;
                                                         <a href="{{ url_for('customer.updatecustomer' , id=customer.c_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                     </button></a>&nbsp;&nbsp;
@@ -211,4 +226,5 @@
                                         {% endfor %}
                                     </table>
                                 </div>
+              {% endif %}
           {% endblock %}

@@ -60,8 +60,7 @@ class Items(db.Model):
     barcode = db.Column(db.LargeBinary)
     purchase_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     modified_date=db.Column(db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
-    sales = db.relationship("SalesItems", backref="items")
-
+    sales = db.relationship("SalesItems", backref="items", lazy='dynamic')
     __table_args__ = (CheckConstraint(item_quantity > -1 ),{})
 
     def __init__(self,item_name,item_quantity,item_price,barcode):
@@ -98,7 +97,7 @@ class SalesItems(db.Model):
     item = db.relationship('Items', backref=db.backref("sales_items", cascade="all, delete-orphan"))
 
 
-    def __init__(self,id,c_id,i_id,sale_quantity):
+    def __init__(self,id,c_id=None,i_id=None,sale_quantity=None):
         self.id = id
         self.c_id=c_id
         self.i_id=i_id

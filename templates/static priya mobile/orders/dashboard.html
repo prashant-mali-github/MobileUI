@@ -1,7 +1,43 @@
 {% extends 'static priya mobile/base1.html' %}
-{% block content %}
+{% block script %}
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    function addSubmit(ev) {
+      ev.preventDefault();
+      $.ajax({
+        method: 'GET',
+        url: {{ url_for('order.totalsale')|tojson }},
+        data: $(this).serialize()
+      }).done(addShow);
+    }
+    function addShow(data) {
+      $('.table-responsive table-responsive-data2').text(data.result);
+    }
+    $('#total_sale').on('click', addSubmit);
+  </script>
+{% endblock %}
 
+{% block content %}
+{% if g.user %}
             <div class="row m-t-25">
+                                    <div class="col-sm-6 col-lg-3">
+                                        <div class="overview-item overview-item--c6">
+                                            <div class="overview__inner">
+                                                <div class="overview-box clearfix">
+                                                    <div class="icon">
+                                                        <i class="zmdi zmdi-shopping-cart"></i>
+                                                    </div>
+                                                    <div class="text">
+                                                        <h2>{{ total_orders }}</h2>
+                                                        <span>Orders</span>
+                                                    </div>
+                                                </div>
+                                                <div class="overview-chart">
+                                                    <canvas id="widgetChart4"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-6 col-lg-3">
                                         <div class="overview-item overview-item--c1">
                                             <div class="overview__inner">
@@ -29,7 +65,7 @@
                                                     </div>
                                                     <div class="text">
                                                         <h2>{{ items }}</h2>
-                                                        <span>Items</span>
+                                                        <span><a href="{{ url_for('item.viewitems') }}">Items</a></span>
                                                     </div>
                                                 </div>
                                                 <div class="overview-chart">
@@ -38,6 +74,27 @@
                                             </div>
                                         </div>
                                     </div>
+                                {% if g.user.username == 'admin' %}
+                                 <div class="col-sm-6 col-lg-3">
+                                        <div class="overview-item overview-item--c5">
+                                            <div class="overview__inner">
+                                                <div class="overview-box clearfix">
+                                                    <div class="icon">
+                                                        <i class="zmdi zmdi-account-o"></i>
+                                                    </div>
+                                                    <div class="text">
+                                                        <h2>{{ users }}</h2>
+                                                        <span>Users</span>
+                                                    </div>
+                                                </div>
+                                                <div class="overview-chart">
+                                                    <canvas id="widgetChart3"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
                                     <div class="col-sm-6 col-lg-3">
                                         <div class="overview-item overview-item--c3">
                                             <div class="overview__inner">
@@ -137,4 +194,5 @@
                                 </div>
                             </div>
                         </div>
+{% endif %}
 {% endblock %}
