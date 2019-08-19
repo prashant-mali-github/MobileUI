@@ -87,10 +87,10 @@
                                 <i class="fa fa-cart-plus"></i>Purchase</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                                <li>
-                                        <a href="{{ url_for('item.additems') }}">Add Item</a>
+                                        <a href="{{ url_for('item.additems') }}" id="add_item">Add Item</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url_for('item.viewitems') }}">View Items</a>
+                                        <a href="{{ url_for('item.viewitems') }}" id="view_items">View Items</a>
                                     </li>
                                     <li>
                                         <a href="index3.html">Change Passward</a>
@@ -108,7 +108,7 @@
                                        <a href="{{ url_for('customer.viewcustomers') }}"><i class="fa fa-user-circle"></i>View Customer</a>
                                     </li>
                                     <li>
-                                        <a href="index3.html"><i class="fa fa-bug"></i>Billing Customer</a>
+                                        <a href="url_for('order.customer_bills') }}"><i class="fa fa-bug"></i>Billing Customer</a>
                                     </li>
                             </ul>
                         </li>
@@ -280,7 +280,7 @@
                                        <a href="{{ url_for('customer.viewcustomers') }}" id="viewcustomer"><i class="fa fa-user-circle"></i>View Customer</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url_for('order.viewbills') }}"><i class="fa fa-bug"></i>Billing Customer</a>
+                                        <a href="{{ url_for('order.customer_bills') }}"><i class="fa fa-bug"></i>Billing Customer</a>
                                     </li>
 
                                 </ul>

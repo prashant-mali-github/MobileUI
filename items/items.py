@@ -11,13 +11,37 @@ from app import db
 item = Blueprint('item', __name__, template_folder='template')
 
 
+# @item.route('/additem/', methods=['GET', 'POST'])
+# def additems():
+#     if request.method == "POST":
+#         error=None
+#         item_name = request.form.get('iname')
+#         item_quantity = request.form.get('quantity')
+#         item_price = request.form['price']
+#         import pyqrcode
+#         url = pyqrcode.create(f"{item_name}---------{item_price}")
+#         url.png('items/barcode.png', scale=8)
+#         with open("items/barcode.png","rb+") as f:
+#             x = base64.b64encode(f.read())
+#         if not item_name or not item_quantity or not item_price:
+#             flash('Please enter all the fields', 'error')
+#             return redirect(url_for('item.additems'))
+#         else:
+#             item = Items(item_name=item_name, item_quantity=item_quantity, item_price=item_price, barcode=x)
+#             db.session.add(item)
+#             db.session.commit()
+#             return redirect(url_for('item.viewitems'))
+#     return render_template("static priya mobile/items/insert_item.html")
+
+
 @item.route('/additem/', methods=['GET', 'POST'])
 def additems():
     if request.method == "POST":
         error=None
-        item_name = request.form.get('iname')
+        item_name = request.form.getlist('iname')
         item_quantity = request.form.get('quantity')
         item_price = request.form['price']
+        print(item_name,".....itemlist")
         import pyqrcode
         url = pyqrcode.create(f"{item_name}---------{item_price}")
         url.png('items/barcode.png', scale=8)
@@ -27,10 +51,17 @@ def additems():
             flash('Please enter all the fields', 'error')
             return redirect(url_for('item.additems'))
         else:
-            item = Items(item_name=item_name, item_quantity=item_quantity, item_price=item_price, barcode=x)
-            db.session.add(item)
-            db.session.commit()
-            return redirect(url_for('item.viewitems'))
+            if len(item_name) == 1:
+                item = Items(item_name=item_name, item_quantity=item_quantity, item_price=item_price, barcode=x)
+                db.session.add(item)
+                db.session.commit()
+                return redirect(url_for('item.viewitems'))
+            elif len(item_name) > 1:
+                for item_n in item_name:
+                    item = Items(item_name=item_n, item_quantity=item_quantity, item_price=item_price, barcode=x)
+                    db.session.add(item)
+                    db.session.commit()
+                return redirect(url_for('item.viewitems'))
     return render_template("static priya mobile/items/insert_item.html")
 
 

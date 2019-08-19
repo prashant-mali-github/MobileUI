@@ -1,4 +1,21 @@
 {% extends 'static priya mobile/base1.html' %}
+{% block script %}
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    function addSubmit(ev) {
+      ev.preventDefault();
+      $.ajax({
+        method: 'POST',
+        url: {{ url_for('order.viewitems')|tojson }},
+        data: $(this).serialize()
+      }).done(addShow);
+    }
+    function addShow(data) {
+      $('.table-data__tool').text(data.result);
+    }
+    $('#view_items').on('click', addSubmit);
+  </script>
+{% endblock %}
 {% block content %}
                     {% if g.user %}
                         <div class="row">

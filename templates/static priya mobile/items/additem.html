@@ -1,4 +1,22 @@
+{% include 'static priya mobile/dropselect.html' %}
 {% extends 'static priya mobile/base1.html' %}
+{% block script %}
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    function addSubmit(ev) {
+      ev.preventDefault();
+      $.ajax({
+        method: 'POST',
+        url: {{ url_for('item.viewitems')|tojson }},
+        data: $(this).serialize()
+      }).done(addShow);
+    }
+    function addShow(data) {
+      $('.table-data__tool').text(data.result);
+    }
+    $('#item').on('submit', addSubmit);
+  </script>
+{% endblock %}
 {% block content %}
 {% if g.user %}
              <div class="main-content">
@@ -11,7 +29,7 @@
                                         <strong>Add Items</strong>
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" id="item">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="iname" class=" form-control-label">Item Name</label>
