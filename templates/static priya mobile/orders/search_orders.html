@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable();
+} );
+  </script>
+</head>
+<body>
+{% block content %}
+{% if g.user %}
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Sale Date</th>
+                <th>Item Actions</th>
+            </tr>
+        </thead>
+    {% for order in orders %}
+        <tbody>
+                                            <tr>
+                                                <td>
+                                                    {{ order.id }}
+                                                </td>
+                                                <td>
+                                                    {{ order.customers.customer_name }}
+                                                </td>
+
+                                                <td>
+                                                    {{ order.i_id }}
+                                                </td>
+                                                <td>
+                                                    {{ order.items.item_name }}
+                                                </td>
+                                                <td>
+                                                    {{ order.items.item_price }}
+                                                </td>
+                                                <td>
+                                                    {{ order.sale_quantity }}
+                                                </td>
+                                                <td>
+                                                    {{ order.sale_date }}
+                                                </td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <a href="{{ url_for('item.deleteorders' , id=order.id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                           <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </button></a>&nbsp;&nbsp;
+<!--                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">-->
+<!--                                                            <i class="zmdi zmdi-more"></i>-->
+<!--                                                        </button>-->
+                                                    </div>
+                                                </td>
+                                            </tr>
+        </tbody>
+    {% endfor %}
+        <tfoot>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Sale Date</th>
+                <th>Item Actions</th>
+            </tr>
+        </tfoot>
+    </table>
+{% endif %}
+{% endblock %}
+</body>
+</html>

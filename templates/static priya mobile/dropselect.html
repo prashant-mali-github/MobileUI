@@ -12,6 +12,10 @@ select#c_id {
 select#quantity {
     height: 35px;
 }
+ul.dropdown-menu.inner {
+    background-color: lightblue;
+    font-size: 20px;
+}
 </style>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -22,6 +26,17 @@ select#quantity {
 <script type="text/javascript">
 	$('select').selectpicker();
 </script>
+
+<script>
+function myFunction() {
+  var inputVal = document.getElementById("item_name").value;
+  var x = document.getElementById("iname");
+  var option = document.createElement("option");
+  option.text = inputVal;
+  x.add(option);
+}
+</script>
+
 	<title></title>
 </head>
 <body>

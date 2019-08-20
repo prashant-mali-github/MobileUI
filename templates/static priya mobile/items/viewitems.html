@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">data table</h3>
+                                <h3 class="title-5 m-b-35">Items table</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-left">
                                         <div class="rs-select2--light rs-select2--md">
@@ -63,12 +63,6 @@
                                     <table class="table table-data2" id="myTable">
                                         <thead>
                                             <tr>
-                                                <th>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </th>
                                                 <th>ID</th>
                                                 <th>Item Name</th>
                                                 <th>Price</th>
@@ -81,12 +75,6 @@
                                         {% if item.item_quantity|int > -1 %}
                                         <tbody>
                                             <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
                                                 <td>
                                                     {{ item.i_id }}
                                                 </td>

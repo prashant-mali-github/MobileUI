@@ -198,7 +198,7 @@ def totalsale():
 @order.route('/searchorders')
 def searchorders():
     orders = SalesItems.query.all()
-    return render_template('static priya mobile/base.html',orders=orders)
+    return render_template('static priya mobile/orders/find_order.html', orders=orders)
 
 
 def customer_orders_details(customer_id):
@@ -231,5 +231,5 @@ def customer_bills():
             customer_items.append(order.i_id)
             sum += int(bill.bill_amount)
         customer_data[customer_name] = customer_items
-        return render_template('static priya mobile/orders/customer_orders.html', customers=customers, sum=sum)
+        return render_template('static priya mobile/orders/customer_orders.html', customers=customers, sum=sum, customername = customer_name)
     return render_template('static priya mobile/orders/customer_orders.html', customers=customers)

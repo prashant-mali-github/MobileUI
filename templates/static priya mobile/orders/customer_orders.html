@@ -45,7 +45,7 @@
                                                     <label for="qauntity" class=" form-control-label">Total_Bill:</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                        <input type="text" id="quantity" value="{{ sum }}" name="quantity" class="form-control" placeholder="0.0">
+<!--                                                        <input type="text" id="quantity" value="{{ sum }}" name="quantity" class="form-control" placeholder="0.0">-->
 <!--                                                    <select name="quantity" id="quantity" class="form-control-md form-control">-->
 <!--                                                        <option value="0">Please select item quantities</option>-->
 <!--                                                        <option value="1">1</option>-->
@@ -59,7 +59,7 @@
 <!--                                                        <option value="30">30</option>-->
 <!--                                                        <option value="50">50</option>-->
 <!--                                                    </select>-->
-                                                    <small class="help-block form-text">Customer order bill</small>
+                                                    <small class="help-block form-text"><b>{{ customername}}</b> order bill:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="{{sum }}" style="background-color: floralwhite;"></small>
 <!--                                                </div>-->
 <!--                                            <div class="form-actions form-group">-->
 <!--                                                <button type="text" class="btn btn-success btn-sm">Add sale</button>-->

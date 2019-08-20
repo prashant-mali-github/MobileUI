@@ -42,6 +42,9 @@
     max-width: 25%;
     height: 20;
 }
+select#iname {
+    background-color: lightblue;
+}
 </style>
 </head>
 <body class="animsition">
@@ -68,7 +71,7 @@
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
                             <a class="js-arrow" href="{{ url_for('order.totalsale') }}">
-                                <i class="fa fa-home"></i>Dashboard</a>
+                                <i class="fa fa-home"></i>Home</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                <li>
                                         <a href="{{ url_for('item.searchitems') }}">Search Items</a>
@@ -86,9 +89,13 @@
                             <a class="js-arrow" href="#">
                                 <i class="fa fa-cart-plus"></i>Purchase</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                               <li>
-                                        <a href="{{ url_for('item.additems') }}" id="add_item">Add Item</a>
+                                   <li>
+                                        <a href="{{ url_for('item.addoneitems') }}" id="add_item">Add Item</a>
                                     </li>
+                                   <li>
+                                        <a href="{{ url_for('item.additems') }}" id="add_multiple_item">Add Multiple Item</a>
+                                    </li>
+
                                     <li>
                                         <a href="{{ url_for('item.viewitems') }}" id="view_items">View Items</a>
                                     </li>
@@ -124,6 +131,9 @@
                                     </li>
                                     <li>
                                         <a href="{{ url_for('order.totalsale') }}">Total Sale</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('order.searchorders') }}">Search Order</a>
                                     </li>
                             </ul>
                         </li>
@@ -222,17 +232,17 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="{{ url_for('order.totalsale') }}">
-                                <i class="fa fa-home"></i>Dashboard</a>
+                                <i class="fa fa-home"></i>Home</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                    <li>
-                                        <a href="{{ url_for('item.searchitems') }}">Search Items</a>
-                                    </li>
-                                    <li>
-                                        <a href="index2.html">View Customer</a>
-                                    </li>
-                                    <li>
-                                        <a href="forget-pass.html">Change Passward</a>
-                                    </li>
+<!--                                    <li>-->
+<!--                                        <a href="{{ url_for('item.searchitems') }}">Search Items</a>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <a href="index2.html">View Customer</a>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <a href="forget-pass.html">Change Passward</a>-->
+<!--                                    </li>-->
                                 </ul>
                         </li>
 
@@ -240,15 +250,19 @@
                             <a class="js-arrow" href="#">
                                 <i class="fa fa-shopping-cart"></i>Purchase</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                    <li>
-                                        <a href="{{ url_for('item.additems') }}">Add Item</a>
+                                     <li>
+                                        <a href="{{ url_for('item.addoneitems') }}" id="add_s_item"><i class='fas fa-cart-plus'></i>Add Item</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ url_for('item.viewitems') }}">View Items</a>
+                                   <li>
+                                        <a href="{{ url_for('item.additems') }}" id="add_multiple_d_item"><i class='fas fa-shopping-basket'></i>Add Multiple Item</a>
                                     </li>
+
                                     <li>
-                                        <a href="index3.html">Change Passward</a>
+                                        <a href="{{ url_for('item.viewitems') }}"><i class='fas fa-shopping-basket'></i>View Items</a>
                                     </li>
+<!--                                    <li>-->
+<!--                                        <a href="index3.html">Change Passward</a>-->
+<!--                                    </li>-->
                                 </ul>
                         </li>
 
@@ -294,17 +308,20 @@
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
 
                                     <li>
-                                        <a href="{{ url_for('order.sale_items') }}">Sale Item</a>
+                                        <a href="{{ url_for('order.sale_items') }}"><i class='fas fa-cart-arrow-down'></i>Sale Item</a>
                                     </li>
 
                                     <li>
-                                        <a href="{{ url_for('order.vieworders') }}" id="view_orders">View Orders</a>
+                                        <a href="{{ url_for('order.vieworders') }}" id="view_orders"><i class="fa fa-shopping-basket" aria-hidden="true"></i>View Orders</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url_for('order.viewbills') }}" id="view_bills">View Bills</a>
+                                        <a href="{{ url_for('order.viewbills') }}" id="view_bills"><i class="fa fa-bug"></i>View Bills</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url_for('order.totalsale') }}" id="total_sale">Total Sale</a>
+                                        <a href="{{ url_for('order.totalsale') }}" id="total_sale"><i class="fa fa-inr" aria-hidden="true"></i>Total Sale</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('order.searchorders') }}" id="search_order"><i class="fa fa-search" aria-hidden="true"></i>Search Order</a>
                                     </li>
                                 </ul>
                         </li>
@@ -331,21 +348,22 @@
 
                         <li>
                             <a class="js-arrow" href="#">
-                                <i class="fa fa-share"></i>Settigns</a>
+
+                                    <i class="fa fa-cog fa-fw" aria-hidden="true"></i>Settigns</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     {% if g.user.username == 'admin'%}
                                     <li>
-                                        <a href="{{ url_for('auth.view_users') }}">View Users</a>
+                                        <a href="{{ url_for('auth.view_users') }}"><i class="fa fa-users" aria-hidden="true"></i>View Users</a>
                                     </li>
                                     {% endif %}
                                     <li>
-                                        <a href="{{ url_for('customer.viewcustomers') }}">View Customers</a>
+                                        <a href="{{ url_for('customer.viewcustomers') }}"><i class="fa fa-users" aria-hidden="true"></i>View Customers</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url_for('item.viewitems') }}">View Items</a>
+                                        <a href="{{ url_for('item.viewitems') }}"><i class="fa fa-cart-plus" aria-hidden="true"></i>View Items</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url_for('auth.change_password') }}">Change Password</a>
+                                        <a href="{{ url_for('auth.change_password') }}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
                                     </li>
                                 </ul>
                         </li>
@@ -797,6 +815,27 @@
 
     <!-- Main JS-->
     <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+    <script>
+function myFunction() {
+  var inputVal = document.getElementById("item_name").value;
+  var x = document.getElementById("iname");
+  var option = document.createElement("option");
+  option.text = inputVal;
+  option.value = inputVal;
+  x.add(option);
+}
+
+function addQuantity() {
+  var inputVal = document.getElementById("item_quantity").value;
+  var x = document.getElementById("quantity");
+  var option = document.createElement("option");
+  option.text = inputVal;
+  option.value = inputVal;
+  x.add(option);
+}
+</script>
+
+
 
 </body>
 </html>

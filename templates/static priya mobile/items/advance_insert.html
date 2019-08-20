@@ -1,8 +1,8 @@
-{% include 'static priya mobile/dropselect.html' %}
+<!--{% include 'static priya mobile/dropselect.html' %}-->
 {% extends 'static priya mobile/base1.html' %}
 {% block content %}
 {% if g.user %}
-             <div class="main-content">
+<div class="main-content" xmlns="http://www.w3.org/1999/html">
                     <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
@@ -18,7 +18,7 @@
                                                     <label for="iname" class=" form-control-label">Item Name</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <select name="iname" id="iname" class="selectpicker" multiple data-live-search="true" style="height:35px">
+                                                    <select name="iname" id="iname" class="form-control">
                                                         <option value="0">Please select</option>
                                                         <option value="Samsung">Samsung</option>
                                                         <option value="Red MI">Red MI</option>
@@ -35,6 +35,23 @@
                                                     <small class="form-text text-muted">please enter item name</small>
                                                 </div>
                                             </div>
+                                             <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="item_name" class=" form-control-label">Add New Item Name</label>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <input type="text" id="item_name" placeholder="Enter new item name"  class="form-control">
+                                                    <small class="form-text text-muted">please enter new item name</small>
+                                                </div>
+                                                 <div class="col-12 col-md-1">
+                                                    <button type="button" onclick="myFunction()" id="add" style="font-size: 25px;"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                 </div>
+                                                  <div class="col-12 col-md-2">
+                                                    <button type="reset" value="reset" style="font-size: 25px;" aria-hidden="true"><i class="fa fa-trash"></i></button>
+<!--                                                    <small class="form-text text-muted">please enter item name</small>-->
+                                                  </div>
+                                            </div>
+
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="quantity" class=" form-control-label">Quantity</label>
@@ -47,10 +64,25 @@
                                                         <option value="20">20</option>
                                                         <option value="50">50</option>
                                                     </select>
-                                                    <small class="form-text text-muted">please enter quantity </small>
+                                                    <small class="form-text text-muted">please select item quantity </small>
                                                 </div>
                                             </div>
-
+                                             <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="item_quantity" class=" form-control-label">Add New Item Name</label>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <input type="text" id="item_quantity" placeholder="Enter new quantity"  class="form-control">
+                                                    <small class="form-text text-muted">please enter new item quantity</small>
+                                                </div>
+                                                 <div class="col-12 col-md-1">
+                                                    <button type="button" onclick="addQuantity()" id="add_quantity" style="font-size: 25px;"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                 </div>
+                                                  <div class="col-12 col-md-2">
+                                                    <button type="reset" value="reset" style="font-size: 25px;" aria-hidden="true"><i class="fa fa-trash"></i></button>
+<!--                                                    <small class="form-text text-muted">please enter item name</small>-->
+                                                  </div>
+                                            </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="price" class=" form-control-label">Item Price:</label>
@@ -60,9 +92,8 @@
                                                     <small class="help-block form-text">Please enter item price</small>
                                                 </div>
                                             </div>
-
                                             <div class="row form-group">
-                                                 <div class="col col-md-3">
+                                                <div class="col col-md-3">
                                                     <button type="submit" class="btn btn-success btn-sm" style="font-size:15px">Submit</button>
                                                 </div>
                                             </div>
