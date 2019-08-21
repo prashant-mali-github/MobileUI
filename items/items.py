@@ -211,3 +211,7 @@ def searchitems():
     return render_template('static priya mobile/base.html',items=items)
 
 
+@item.route('/search_item')
+def search_items():
+    items = Items.query.all()
+    return render_template('static priya mobile/items/search_items.html', items=items)

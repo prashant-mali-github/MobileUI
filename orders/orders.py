@@ -193,7 +193,7 @@ def totalsale():
     bills = Bill.query.all()
     total_orders = len(orders)
     users = len(user)
-    return render_template('static priya mobile/orders/dashboard.html', sum=sum,customers=customers, items=items,total_orders=total_orders,users=users)
+    return render_template('static priya mobile/orders/dashboard.html', sum=sum, customers=customers, items=items, total_orders=total_orders, users=users)
 
 @order.route('/searchorders')
 def searchorders():

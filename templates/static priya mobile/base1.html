@@ -34,8 +34,6 @@
     <!-- Main CSS-->
     <link href="{{ url_for('static', filename = 'css/theme.css') }}" rel="stylesheet" media="all">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
 <style type="text/css">
 #i1
 {
@@ -100,7 +98,7 @@ select#iname {
                                         <a href="{{ url_for('item.viewitems') }}" id="view_items">View Items</a>
                                     </li>
                                     <li>
-                                        <a href="index3.html">Change Passward</a>
+                                        <a href="{{ url_for('item.search_items') }}" id="search_items">View Items</a>
                                     </li>
                             </ul>
                         </li>
@@ -260,9 +258,9 @@ select#iname {
                                     <li>
                                         <a href="{{ url_for('item.viewitems') }}"><i class='fas fa-shopping-basket'></i>View Items</a>
                                     </li>
-<!--                                    <li>-->
-<!--                                        <a href="index3.html">Change Passward</a>-->
-<!--                                    </li>-->
+                                    <li>
+                                        <a href="{{ url_for('item.search_items') }}"><i class="fa fa-search" aria-hidden="true"></i>Search Item</a>
+                                    </li>
                                 </ul>
                         </li>
 
