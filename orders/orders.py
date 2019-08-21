@@ -226,10 +226,12 @@ def customer_bills():
         customer = Customer.query.filter_by(customer_name=customer_name).first()
         customer_orders = SalesItems.query.filter_by(c_id=customer.c_id).all()
         sum = 0
+        order_count = 0
         for order in customer_orders:
             bill = Bill.query.filter_by(o_id=int(order.id)).first()
             customer_items.append(order.i_id)
+            order_count += 1
             sum += int(bill.bill_amount)
         customer_data[customer_name] = customer_items
-        return render_template('static priya mobile/orders/customer_orders.html', customers=customers, sum=sum, customername = customer_name)
+        return render_template('static priya mobile/orders/customer_orders.html', customers=customers, sum=sum, customername = customer_name, order_count=order_count)
     return render_template('static priya mobile/orders/customer_orders.html', customers=customers)
