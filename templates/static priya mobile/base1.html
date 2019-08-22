@@ -292,7 +292,10 @@ select#iname {
                                        <a href="{{ url_for('customer.viewcustomers') }}" id="viewcustomer"><i class="fa fa-user-circle"></i>View Customer</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url_for('order.customer_bills') }}"><i class="fa fa-bug"></i>Billing Customer</a>
+                                        <a href="{{ url_for('order.customer_bills') }}" id="bill_customer"><i class="fa fa-bug"></i>Billing Customer</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('customer.search_customers') }}" id="search_customer"><i class="fa fa-search" aria-hidden="true"></i>Search Customer</a>
                                     </li>
 
                                 </ul>

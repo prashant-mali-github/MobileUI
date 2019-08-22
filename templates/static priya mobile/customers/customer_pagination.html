@@ -7,6 +7,7 @@
    <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href ="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>-->
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>-->
   <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
@@ -62,20 +63,25 @@ $(document).ready(function(){
                                                 </td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <a href="{{ url_for('customer.updatecustomer' , id=customer.c_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                    </button></a>&nbsp;&nbsp;
+                                                        <a href="{{ url_for('customer.updatecustomer' , id=customer.c_id) }}">
+<!--                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">-->
+                                                          <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Edit"></i>
+<!--                                                        </button>-->
+
+                                                        </a>&nbsp;&nbsp;
 
                                                         <!--<button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal">-->
 										                        	<!--Large-->
                                                         <!--</button>-->
 
-                                                        <a href="{{ url_for('customer.deletecustomer' , id=customer.c_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button></a>&nbsp;&nbsp;
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </button>
+                                                        <a href="{{ url_for('customer.deletecustomer' , id=customer.c_id) }}">
+<!--                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">-->
+                                                            <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+<!--                                                        </button>-->
+                                                        </a>&nbsp;&nbsp;
+<!--                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">-->
+                                                            <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="More"></i>
+<!--                                                        </button>-->
                                                     </div>
                                                 </td>
                                             </tr>

@@ -10,7 +10,15 @@ customer = Blueprint('customer', __name__, template_folder='template')
 @customer.route("/viewcustomers")
 def viewcustomers():
     customers = Customer.query.all()
-    return render_template('static priya mobile/customers/customer_pagination.html',customers=customers)
+    return render_template('static priya mobile/customers/viewcustomers.html',customers=customers)
+
+
+@customer.route('/searchcustomer')
+def search_customers():
+    customers = Customer.query.all()
+    return render_template('static priya mobile/customers/customer_pagination.html', customers=customers)
+
+
 
 @customer.route("/totalcustomer")
 def totalcustomer():

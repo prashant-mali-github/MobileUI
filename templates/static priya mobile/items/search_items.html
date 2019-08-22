@@ -32,6 +32,17 @@ div.dataTables_wrapper div.dataTables_length label {
     padding: 10px;
     padding-left: 30px;
 }
+th.sorting_asc {
+    background-color: azure;
+}
+
+th.sorting {
+    background-color: azure;
+}
+
+div#example_wrapper {
+    background-color: lavender;
+}
 </style>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -92,29 +103,37 @@ div.dataTables_wrapper div.dataTables_length label {
                                                 <td>
                                                     <div class="table-data-feature">
                                                         {% if item.item_quantity|int > 0 %}
-                                                        <a href="{{ url_for('item.saleitem', id=item.i_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Sale">
-                                                            Sale
-                                                    </button></a>&nbsp;&nbsp;
+                                                        <a href="{{ url_for('item.saleitem', id=item.i_id) }}">
+<!--                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Sale">-->
+                                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+<!--                                                    </button>-->
+                                                        </a>&nbsp;&nbsp;
                                                         {% else %}
-                                                        <button class="item_status" data-toggle="tooltip" data-placement="top" title="empty" style="background-color: #f44336;">
-                                                            Empty
-                                                    </button>&nbsp;&nbsp;
+<!--                                                        <button class="item_status" data-toggle="tooltip" data-placement="top" title="empty" style="background-color: #f44336;">-->
+                                                        <a href="{{ url_for('item.saleitem', id=item.i_id) }}">
+                                                        <i class="fal fa-exclamation-circle"></i>
+                                                        </a>
+<!--                                                    </button>&nbsp;&nbsp;-->
                                                         {% endif %}
-                                                        <a href="{{ url_for('item.updateitem' , id=item.i_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            Edit
-                                                        </button></a>&nbsp;&nbsp;
+                                                        <a href="{{ url_for('item.updateitem' , id=item.i_id) }}">
+<!--                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">-->
+                                                            <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+<!--                                                        </button>-->
+                                                        </a>&nbsp;&nbsp;
                                                         {% if item.item_quantity|int < 5 %}
-                                                        <button class="item_status" data-toggle="tooltip" data-placement="top" title="status" style="background-color:red">
+<!--                                                        <button class="item_status" data-toggle="tooltip" data-placement="top" title="status" style="background-color:red">-->
                                                             Status
-                                                        </button>
+<!--                                                        </button>-->
                                                         {% elif item.item_quantity|int > 5 %}
-                                                        <button class="item_status" data-toggle="tooltip" data-placement="top" title="status" style="background-color:green">
+<!--                                                        <button class="item_status" data-toggle="tooltip" data-placement="top" title="status" style="background-color:green">-->
                                                             Status
-                                                        </button>
+<!--                                                        </button>-->
                                                         {% endif %}
-                                                        <a href="{{ url_for('item.deleteitem' , id=item.i_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                           Delete
-                                                        </button></a>&nbsp;&nbsp;
+                                                        <a href="{{ url_for('item.deleteitem' , id=item.i_id) }}">
+<!--                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">-->
+                                                          <i class="fa fa-trash"></i>
+<!--                                                        </button>-->
+                                                        </a>&nbsp;&nbsp;
                                                     </div>
                                                 </td>
                                             </tr>
