@@ -52,7 +52,9 @@ order = Blueprint('order', __name__, template_folder='template')
 @order.route('/vieworders')
 def vieworders():
     # db.session.query(SalesItems).delete()
-    # db.session.commit()
+    # db.session.query(Items).delete()
+    db.session.commit()
+
     orders = SalesItems.query.all()
     sum = 0
     for order in orders:

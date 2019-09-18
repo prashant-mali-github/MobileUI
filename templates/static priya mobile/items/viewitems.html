@@ -68,7 +68,9 @@
                                                 <th>Price</th>
                                                 <th>Item Quantity</th>
                                                 <th>Purchase date</th>
+                                                <th>View</th>
                                                 <th>Item Actions</th>
+
                                             </tr>
                                         </thead>
                                         {% for item in items %}
@@ -92,6 +94,11 @@
                                                 </td>
                                                 <td>
                                                     {{ item.purchase_date }}
+                                                </td>
+                                                 <td>
+                                                       <a href="{{ url_for('item.download_qr', id=item.i_id) }}"><button class="item" data-toggle="tooltip" data-placement="top" title="view_barcode">
+                                                            <i class="fas fa-cart-arrow-down"></i>
+                                                    </button></a>&nbsp;&nbsp;
                                                 </td>
                                                 <td>
                                                     <div class="table-data-feature">

@@ -1,12 +1,16 @@
-from flask import Blueprint, render_template, redirect, request,flash,url_for,session,g,send_from_directory
+from io import BytesIO
+import io
+import img2pdf
+import os
+from flask import Blueprint, render_template, redirect, request,flash,url_for,session,g,send_from_directory,send_file
 from models.create_models import Items, Bill, SalesItems, Customer
 from orders.orders import order
 from openpyxl import load_workbook
 import base64
 import functools
 import random
-from werkzeug.security import check_password_hash
 from app import db
+from io import BytesIO
 
 item = Blueprint('item', __name__, template_folder='template')
 
@@ -20,9 +24,13 @@ def addoneitems():
         item_price = request.form['price']
         import pyqrcode
         url = pyqrcode.create(f"{item_name}---------{item_price}")
-        url.png('items/barcode.png', scale=8)
-        with open("items/barcode.png","rb+") as f:
-            x = base64.b64encode(f.read())
+
+        path = 'E:\\DeployMobileUI\\items\\barcode'
+        image_name = path + '\\' + item_name + '.png'
+        os.chdir(path)
+        url.png(image_name, scale=8)
+        with open(image_name,"rb+") as f:
+            x = f.read()
         if not item_name or not item_quantity or not item_price:
             flash('Please enter all the fields', 'error')
             return redirect(url_for('item.additems'))
@@ -44,20 +52,37 @@ def additems():
         print(item_name,".....itemlist")
         import pyqrcode
         url = pyqrcode.create(f"{item_name}---------{item_price}")
-        url.png('items/barcode.png', scale=8)
-        with open("items/barcode.png","rb+") as f:
-            x = base64.b64encode(f.read())
+        # path = 'E:\\DeployMobileUI\\items\\barcode'
+        # image_name = path + '\\' + item_name + '.png'
+        # os.chdir(path)
+        # url.png(image_name, scale=8)
+        # with open(image_name,"rb+") as f:
+        #     x = f.read()
         if not item_name or not item_quantity or not item_price:
             flash('Please enter all the fields', 'error')
             return redirect(url_for('item.additems'))
         else:
             if len(item_name) == 1:
+                path = 'E:\\DeployMobileUI\\items\\barcode'
+                image_name = path + '\\' + item_name + '.png'
+                url = pyqrcode.create(f"{image_name}---------\n{item_price}")
+                os.chdir(path)
+                url.png(image_name, scale=8)
+                with open(image_name, "rb+") as f:
+                    x = f.read()
                 item = Items(item_name=item_name, item_quantity=item_quantity, item_price=item_price, barcode=x)
                 db.session.add(item)
                 db.session.commit()
                 return redirect(url_for('item.viewitems'))
             elif len(item_name) > 1:
                 for item_n in item_name:
+                    path = 'E:\\DeployMobileUI\\items\\barcode'
+                    item_path = path + '\\' + item_n + '.png'
+                    os.chdir(path)
+                    url = pyqrcode.create(f"{item_n}---------\n{item_price}")
+                    url.png(item_path, scale=8)
+                    with open(item_path, "rb+") as f:
+                        x = f.read()
                     item = Items(item_name=item_n, item_quantity=item_quantity, item_price=item_price, barcode=x)
                     db.session.add(item)
                     db.session.commit()
@@ -68,7 +93,54 @@ def additems():
 @item.route('/viewitems')
 def viewitems():
     items = Items.query.all()
-    return render_template('static priya mobile/items/viewitems.html',items=items)
+    # path = 'E:\\DeployMobileUI\\items\\barcode'
+    # for i in items:
+    #     # with open(path + '\\' + i.item_name + '.png', "wb") as f:
+    #     #     f.write(bytearray(i.barcode))
+    #     #     f.close()
+    #     data = i.barcode
+    #     print(data)
+    #     os.chdir(path)
+    #     bytes = i.barcode
+    #     image = Image.open(io.BytesIO(bytes))
+    #     image.save(path)
+    return render_template('static priya mobile/items/viewitems.html', items=items)
+
+
+@item.route('/download_qr/<id>')
+def download_qr(id):
+    item = Items.query.get(int(id))
+    barcode_data = item.barcode
+    file_name = str(item.item_name) + '.png'
+    path = 'E:\\DeployMobileUI\\items\\download_qr'
+    os.chdir(path)
+    with open(file_name, "wb+") as file:
+        file.write(barcode_data)
+    return send_file(BytesIO(barcode_data), attachment_filename=file_name, as_attachment=True)
+
+
+@item.route('/all_barcode')
+def all_barcode():
+    imagelist = []
+    imagelist_obj = Items.query.all()
+    path = 'E:\\DeployMobileUI\\items\\download_qr'
+    for image in imagelist_obj:
+        file_name = str(image.item_name) + '.png'
+        barcode_data = image.barcode
+        os.chdir(path)
+        with open(file_name, "wb+") as file:
+            file.write(barcode_data)
+    with open("all_item_barcode.pdf", "wb") as f:
+        f.write(img2pdf.convert([i for i in os.listdir('E:\\DeployMobileUI\\items\\download_qr') if i.endswith(".png")]))
+    return redirect(url_for('item.viewitems'))
+
+
+def get_list_of_file_names():
+    list_of_filename = []
+    for root, dirs, files in os.walk("download_qr"):
+        for filename in files:
+            list_of_filename.append(filename)
+    return list_of_filename
 
 @item.route('/reports')
 def report():
@@ -76,7 +148,7 @@ def report():
     import xlsxwriter
     # Workbook() takes one, non-optional, argument
     # which is the filename that we want to create.
-    workbook = xlsxwriter.Workbook('hello.xlsx')
+    workbook = xlsxwriter.Workbook('allitems.xlsx')
 
     # The workbook object is then used to add new
     # worksheet via the add_worksheet() method.
